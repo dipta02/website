@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Springfield Elementary</title>
+  <!-- Font Awesome 5 (free) for clean icons -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+  <!-- Google Font for a friendly, modern look -->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background-color: #fefdf8;
+      color: #2e4057;
+      line-height: 1.6;
+    }
+
+    /* reusable container */
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* ----- header & navigation ----- */
+    header {
+      background: linear-gradient(135deg, #1e4a6b 0%, #327a8f 100%);
+      color: white;
+      padding: 1rem 0;
+      box-shadow: 0 4px 12px rgba(0, 20, 30, 0.15);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .logo-icon {
+      font-size: 2.5rem;
+      color: #ffd966;
+    }
+
+    .school-name h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .school-name p {
+      font-size: 0.9rem;
+      opacity: 0.9;
+      font-weight: 500;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: 0.2s;
+      padding: 0.4rem 0;
+      border-bottom: 2px solid transparent;
+    }
+
+    nav ul li a:hover {
+      border-bottom-color: #ffd966;
+      color: #ffebc0;
+    }
+
+    /* ----- hero section ----- */
+    .hero {
+      background: linear-gradient( rgba(20, 60, 80, 0.75), rgba(10, 40, 55, 0.8) ), url('https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center 30%;
+      min-height: 500px;
+      display: flex;
+      align-items: center;
+      color: white;
+      text-align: center;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 0;
+    }
+
+    .hero-content h2 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+    }
+
+    .hero-content p {
+      font-size: 1.4rem;
+      margin-bottom: 2rem;
+      font-weight: 500;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #ffb347;
+      color: #1e3d4c;
+      padding: 0.8rem 2.2rem;
+      border-radius: 40px;
+      font-weight: 700;
+      font-size: 1.2rem;
+      text-decoration: none;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      transition: 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #ffa01c;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 20px rgba(0,0,0,0.25);
+      color: #0f2c38;
+    }
+
+    /* ----- features / welcome ----- */
+    .welcome {
+      padding: 5rem 0;
+      background-color: #ffffff;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #1e4a6b;
+      font-weight: 700;
+    }
+
+    .section-sub {
+      text-align: center;
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 3rem auto;
+      color: #4a6572;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 2.5rem;
+      margin-top: 2rem;
+    }
+
+    .feature-card {
+      background: #f9fcff;
+      padding: 2.2rem 1.8rem;
+      border-radius: 30px;
+      box-shadow: 0 15px 30px -8px rgba(30, 74, 107, 0.15);
+      text-align: center;
+      transition: 0.2s;
+      border: 1px solid rgba(50, 122, 143, 0.1);
+    }
+
+    .feature-card:hover {
+      transform: scale(1.02);
+      border-color: #b3d6e6;
+    }
+
+    .feature-icon {
+      font-size: 3.3rem;
+      color: #327a8f;
+      margin-bottom: 1rem;
+    }
+
+    .feature-card h3 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: #1e4a6b;
+    }
+
+    .feature-card p {
+      color: #2f5061;
+    }
+
+    /* ----- about / mission ----- */
+    .about-mission {
+      background: #e5f0f5;
+      padding: 5rem 0;
+    }
+
+    .mission-flex {
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+      flex-wrap: wrap;
+    }
+
+    .mission-text {
+      flex: 1 1 300px;
+    }
+
+    .mission-text h3 {
+      font-size: 2.2rem;
+      color: #1e4a6b;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .mission-text p {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .mission-highlight {
+      background: white;
+      padding: 1.5rem 2rem;
+      border-radius: 60px 20px 60px 20px;
+      display: inline-block;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+      font-weight: 600;
+      color: #154251;
+    }
+
+    .mission-highlight i {
+      color: #ff9f1c;
+      margin-right: 0.5rem;
+    }
+
+    .mission-image {
+      flex: 1 1 300px;
+      text-align: center;
+    }
+
+    .mission-image img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 40px 10px 40px 10px;
+      box-shadow: 20px 20px 0 #327a8f;
+    }
+
+    /* ----- upcoming events & news ----- */
+    .events {
+      padding: 5rem 0;
+      background: white;
+    }
+
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+
+    .event-item {
+      background: #f2f7fb;
+      border-radius: 30px;
+      padding: 2rem;
+      border-left: 10px solid #ffb347;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+      transition: 0.2s;
+    }
+
+    .event-item:hover {
+      background: #ffffff;
+      box-shadow: 0 20px 30px rgba(30, 74, 107, 0.1);
+    }
+
+    .event-date {
+      background: #1e4a6b;
+      color: white;
+      display: inline-block;
+      padding: 0.3rem 1.2rem;
+      border-radius: 40px;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .event-item h4 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: #154251;
+    }
+
+    .event-item p {
+      color: #2c4a5e;
+    }
+
+    .btn-light {
+      background: transparent;
+      border: 2px solid #1e4a6b;
+      color: #1e4a6b;
+      font-weight: 600;
+      padding: 0.5rem 2rem;
+      border-radius: 40px;
+      text-decoration: none;
+      transition: 0.2s;
+      display: inline-block;
+    }
+
+    .btn-light:hover {
+      background: #1e4a6b;
+      color: white;
+    }
+
+    /* ----- footer ----- */
+    footer {
+      background: #123b4d;
+      color: #d2eaf5;
+      padding: 3rem 0 1.5rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .footer-col h4 {
+      color: #ffd966;
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 0.7rem;
+    }
+
+    .footer-col ul li a {
+      color: #cadee8;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    .footer-col ul li a:hover {
+      color: #ffb347;
+      padding-left: 5px;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .social-icons a {
+      color: white;
+      background: #1f5e7a;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      transition: 0.2s;
+    }
+
+    .social-icons a:hover {
+      background: #ffb347;
+      color: #0a2e3c;
+      transform: translateY(-3px);
+    }
+
+    .copyright {
+      text-align: center;
+      border-top: 1px solid #326d83;
+      padding-top: 2rem;
+      margin-top: 2rem;
+      font-size: 0.95rem;
+    }
+
+    /* small responsive touches */
+    @media (max-width: 700px) {
+      .header-flex {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      nav ul {
+        gap: 1.2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .hero-content h2 {
+        font-size: 2.2rem;
+      }
+      .mission-flex {
+        flex-direction: column-reverse;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container header-flex">
+      <div class="logo-area">
+        <i class="fas fa-graduation-cap logo-icon"></i>
+        <div class="school-name">
+          <h1>Springfield Elementary</h1>
+          <p>where bright futures begin</p>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Academics</a></li>
+          <li><a href="#">Admissions</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- hero section -->
+    <section class="hero">
+      <div class="container hero-content">
+        <h2>Inspiring minds, building character</h2>
+        <p>Providing excellence in education since 1985</p>
+        <a href="#" class="btn">Enroll today <i class="fas fa-arrow-right" style="margin-left: 8px;"></i></a>
+      </div>
+    </section>
+
+    <!-- welcome / features -->
+    <section class="welcome">
+      <div class="container">
+        <h2 class="section-title">Why families love our school</h2>
+        <p class="section-sub">A nurturing environment with focus on academic excellence, creativity, and community.</p>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <i class="fas fa-chalkboard-teacher feature-icon"></i>
+            <h3>Expert educators</h3>
+            <p>Passionate teachers who bring out the best in every student, with small class sizes.</p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-flask feature-icon"></i>
+            <h3>STEAM programs</h3>
+            <p>Hand‑on science, tech, engineering, arts, and math for tomorrow’s innovators.</p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-leaf feature-icon"></i>
+            <h3>Green campus</h3>
+            <p>Expansive playing fields, gardens, and outdoor classrooms across 20 acres.</p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-music feature-icon"></i>
+            <h3>Arts & athletics</h3>
+            <p>Music, theatre, sports teams, and clubs to discover every child’s passion.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- about / mission -->
+    <section class="about-mission">
+      <div class="container mission-flex">
+        <div class="mission-text">
+          <h3>More than a school, a community</h3>
+          <p>Our mission is to cultivate curiosity, confidence, and compassion. We believe every child deserves a place where they feel safe, challenged, and inspired.</p>
+          <div class="mission-highlight">
+            <i class="fas fa-star"></i> 40+ years of excellence · 650 students · Pre‑K through 8th grade
+          </div>
+          <p style="margin-top: 1.5rem;">We partner with families to develop well-rounded, kind, and resilient learners prepared for the future.</p>
+        </div>
+        <div class="mission-image">
+          <!-- using a placeholder library image – friendly school scene -->
+          <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Happy students in classroom">
+        </div>
+      </div>
+    </section>
+
+    <!-- events & news -->
+    <section class="events">
+      <div class="container">
+        <h2 class="section-title">Upcoming events</h2>
+        <p class="section-sub">Join us! There's always something happening at Springfield Elementary.</p>
+        <div class="events-grid">
+          <div class="event-item">
+            <span class="event-date"><i class="far fa-calendar-alt" style="margin-right: 5px;"></i> May 15, 2025</span>
+            <h4>Spring Art Exhibition</h4>
+            <p>Celebrate our young artists. Opening night 5:30 PM – 7:30 PM in the gymnasium.</p>
+          </div>
+          <div class="event-item">
+            <span class="event-date"><i class="far fa-calendar-alt" style="margin-right: 5px;"></i> May 22, 2025</span>
+            <h4>Family STEAM night</h4>
+            <p>Hands-on experiments, robotics demo, and stargazing. Fun for all ages!</p>
+          </div>
+          <div class="event-item">
+            <span class="event-date"><i class="far fa-calendar-alt" style="margin-right: 5px;"></i> June 5, 2025</span>
+            <h4>8th Grade graduation</h4>
+            <p>Celebrate the class of 2025. Ceremony begins at 10 AM in the auditorium.</p>
+          </div>
+        </div>
+        <div style="text-align: center; margin-top: 2rem;">
+          <a href="#" class="btn-light"><i class="far fa-calendar-plus"></i> View full calendar</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Faculty & staff</a></li>
+            <li><a href="#">Calendar</a></li>
+            <li><a href="#">News</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Family resources</h4>
+          <ul>
+            <li><a href="#">Parent portal</a></li>
+            <li><a href="#">Lunch menu</a></li>
+            <li><a href="#">After school care</a></li>
+            <li><a href="#">School supply list</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i> 123 Education Ln, Springfield</li>
+            <li><i class="fas fa-phone-alt" style="margin-right: 8px;"></i> (555) 123-4567</li>
+            <li><i class="fas fa-envelope" style="margin-right: 8px;"></i> office@springfield.el</li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <div class="social-icons">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        &copy; 2025 Springfield Elementary School. All rights reserved. 
+        <br><span style="opacity: 0.7;">Designed with <i class="fas fa-heart" style="color: #ffb347;"></i> for our students.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
